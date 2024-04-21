@@ -29,8 +29,15 @@ void bind_vector(Cls& cls){
 
     if constexpr (Dim == 2){
         cls.def(nb::init<Type, Type>());
+        cls
+          .def("x", [](Vec v){ return v.x(); })
+          .def("y", [](Vec v){ return v.y(); });
     } else if constexpr (Dim == 3){
         cls.def(nb::init<Type, Type, Type>());
+        cls
+          .def("x", [](Vec v){ return v.x(); })
+          .def("y", [](Vec v){ return v.y(); })
+          .def("z", [](Vec v){ return v.z(); });
     }
 }
 
